@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import java.lang.String?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MovieListController">
+   <VBox>
+    <fx:define>
+      <String fx:id="localMovieListPath" fx:value="MovieList.json" />
+      <String fx:id="apiBaseUri" fx:value="http://localhost:8999/movielist" />
+    </fx:define>
+   </VBox>
+   <children>
+      <AnchorPane minHeight="0.0" minWidth="0.0">
+         <children>
+            <VBox prefHeight="571.0" prefWidth="230.0" style="-fx-background-color: #DBDBDB;">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="228.0">
+                     <children>
+                        <Text layoutX="22.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filtrer/sorter">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sorter filmer på tittel">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <CheckBox fx:id="sortOnTitleCheckbox" id="sortOnTitleCheckbox" layoutX="200.0" layoutY="40.0" mnemonicParsing="false" onAction="#displayMovieList" />
+                        <Text layoutX="14.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La filmer du ikke har sett komme øverst" wrappingWidth="160.810546875">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <CheckBox fx:id="sortOnSeenCheckbox" id="sortOnSeenCheckbox" layoutX="200.0" layoutY="74.0" mnemonicParsing="false" onAction="#displayMovieList"/>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane minHeight="0.0" minWidth="0.0">
+         <children>
+            <ScrollPane prefHeight="571.0" prefWidth="570.0">
+               <content>
+                  <Pane fx:id="movieDisplay" id="movieDisplay" prefWidth="550.0" />
+               </content>
+            </ScrollPane>
+            <VBox fx:id="editMovieWindow" id="editMovieWindow" layoutX="104.0" layoutY="86.0" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <fx:include fx:id="editMovie" id="editMovie" source="EditMovie.fxml" />
+               </children>
+            </VBox>
+            <Button fx:id="openEditMovie" id="openEditMovie" layoutX="513.0" layoutY="525.0" mnemonicParsing="false" onAction="#editNewMovie" text="+">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

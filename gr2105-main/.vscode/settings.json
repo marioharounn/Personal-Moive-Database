@@ -1,0 +1,16 @@
+{
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.checkstyle.configuration": "/google_checks.xml",
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "java.format.settings.profile": "GoogleStyle",
+  "[java]": {
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false
+  },
+// PlantUMLServer: Render diagrams by server which is specified with "plantuml.server". It's much faster, but requires a server.
+// Local is the default configuration.
+"plantuml.render": "PlantUMLServer",
+
+// Plantuml server to generate UML diagrams on-the-fly.
+"plantuml.server": "http://www.plantuml.com/plantuml",
+}
